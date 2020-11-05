@@ -1,1 +1,1 @@
-web: gunicorn socket2:socketio
+web: gunicorn --worker-class eventlet -w 1 socket2:app
