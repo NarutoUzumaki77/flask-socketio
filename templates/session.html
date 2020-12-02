@@ -37,9 +37,10 @@
       } )
       socket.on( 'my response', function( msg ) {
         console.log( msg )
-        if( typeof msg.user_name !== 'undefined' ) {
+        if( msg.length > 0 ) {
+          broadcast = msg[msg.length - 1]
           $( 'h3' ).remove()
-          $( 'div.message_holder' ).append( '<div><b style="color: #000">'+msg.user_name+'</b> '+msg.message+'</div>' )
+          $( 'div.message_holder' ).append( '<div><b style="color: #000">'+broadcast.user_name+'</b> '+broadcast.message+'</div>' )
         }
       })
     </script>
